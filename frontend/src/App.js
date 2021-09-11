@@ -1,8 +1,12 @@
+import NavBar from './components/navbar/index';
 function App() {
   return (
-    <div className="App">
-      <h1>Olá Mundo</h1>
-    </div>
+    <>
+      <NavBar />
+      <div>
+        <h1 className="text-primary">Olá Mundo</h1>
+      </div>
+    </>
   );
 }
 
