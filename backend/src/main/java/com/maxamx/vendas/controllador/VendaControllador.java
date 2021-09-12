@@ -1,8 +1,11 @@
 package com.maxamx.vendas.controllador;
 
+import com.maxamx.vendas.dto.SomaVendaDTO;
+import com.maxamx.vendas.dto.SucessoVendaDTO;
 import com.maxamx.vendas.dto.VendaDTO;
 import com.maxamx.vendas.servico.VendaServico;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +26,15 @@ public class VendaControllador {
     @GetMapping
     public ResponseEntity<Page<VendaDTO>> findAll(Pageable pageable){
         return  ResponseEntity.ok(vendaServico.findAll(pageable));
+    }
+
+    @GetMapping(value = "/vendas-por-vendendor")
+    public ResponseEntity<List<SomaVendaDTO>> somaVendaPorVendedor(){
+        return ResponseEntity.ok(vendaServico.somaValorVendidoPorVendedor());
+    }
+
+    @GetMapping(value = "/sucesso-vendas-por-vendendor")
+    public ResponseEntity<List<SucessoVendaDTO>> sucessoVendasPorVendedor(){
+        return ResponseEntity.ok(vendaServico.sucessoDeVendasPorVendedor());
     }
 }
