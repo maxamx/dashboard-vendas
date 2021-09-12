@@ -32,7 +32,7 @@ public class Venda {
     @Column(name = "data")
     private LocalDate data;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="vendendor_id")
     private Vendendor vendendor;
 
